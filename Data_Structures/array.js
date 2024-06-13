@@ -19,4 +19,19 @@
   
  }
 
-console.log(values)
+console.log(values);
+
+/* Problem 3
+    Array methods
+    Create an array to store Bloomberg, Uber,Google, IBM, Netflix
+    a. remove the first company
+    b. remove uber and add ola
+    c. add amazon at the end
+    */
+ let companies = ["Bloomberg", "Uber","Google", "IBM", "Netflix"];
+ companies.splice(1,1,"OLA");
+ console.log(companies);
+ companies.shift();
+ console.log(companies);
+ companies.push("Amazon");
+ console.log(companies);
