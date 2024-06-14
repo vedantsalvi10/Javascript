@@ -4,8 +4,33 @@
   <title>Json</title>
 </head>
 <body>
-  <script src="" type="text/javascript">
-    console.log(JSON.parse(members));
+  <script src="./json.js" type="text/javascript">
+    let members = `[
+
+                {
+                 name: "Vedant",
+                 age:34,
+                 duration:"1 year",
+                 hobies:["driving","swiming","dancing","drawing"]
+                 },
+                 
+
+                 {
+                 name: "Gacumoli",
+                 age:25,
+                 duration:"2 year",
+                 hobies:["farming","swiming","dancing","football"]
+                 },
+                
+  
+                 {
+                 name: "chirag",
+                 age:40,
+                 duration:"5 year",
+                 hobies:["criket","browsing","dancing","chess"]
+                 }
+                 ]`
+                 console.log(JSON.parse(members));
   </script>
 </body>
 </html>
