@@ -1,3 +1,4 @@
+// find vowel in the string....
 function counter(string){
   for(character in string){
     if(character === 'a' || character === 'e' || character === 'i' || character === 'o' || character === 'u'){
