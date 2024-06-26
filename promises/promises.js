@@ -59,29 +59,61 @@
 // console.log(api());
 
 //promise 5
-function promise(dataId, error){
-     return new Promise((resolve,reject)=>{
-       setTimeout(()=>{
-          if(!error){
-            console.log(`data: ${dataId}`);
-            resolve();
-          }
-          else{
-            reject(error = "limit reached");
-          }
-       }, 2000)
-      });
-  }
+// function promise(dataId, error){
+//      return new Promise((resolve,reject)=>{
+//        setTimeout(()=>{
+//           if(!error){
+//             console.log(`data: ${dataId}`);
+//             resolve();
+//           }
+//           else{
+//             reject(error = "limit reached");
+//           }
+//        }, 2000)
+//       });
+//   }
 
-  const api = async ()=>{
-    try {
-      await promise(1,false);
-      await promise(2,false);
-      await promise(3,false);
-      await promise(4,true);
-      await promise(5,false);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  console.log(api());
+//   const api = async ()=>{
+//     try {
+//       await promise(1,false);
+//       await promise(2,false);
+//       await promise(3,false);
+//       await promise(4,true);
+//       await promise(5,false);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+//   console.log(api());
+
+
+// promise 6
+
+function promise(dataId, error){
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+       if(!error){
+         console.log(`data: ${dataId}`);
+         resolve();
+       }
+       else{
+         reject(error = "limit reached");
+       }
+    }, 2000)
+   });
+}
+promise(1,false).then(()=>{
+  console.log(`getting data2...`);
+     promise(2,false).then(()=>{
+      console.log(`getting data3...`);
+      promise(3,true).then(()=>{
+        console.log(`getting data4...`);
+      }).catch((error)=>{
+          console.log(error);
+      }).finally(()=>{
+           console.log("remaining data 4,5,6 ejected");
+      });
+      
+     });
+});
+
