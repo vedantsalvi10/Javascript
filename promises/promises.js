@@ -27,16 +27,61 @@
 
 
 //promise 3 reslove and reject
-const input = parseInt( prompt("enter a number"));
-const promise = new Promise((resolve,reject)=>{
- if(input === 2){
-  resolve();
- }
- else{
-  reject("number not same");
- }
-});
+// const input = parseInt( prompt("enter a number"));
+// const promise = new Promise((resolve,reject)=>{
+//  if(input === 2){
+//   resolve();
+//  }
+//  else{
+//   reject("number not same");
+//  }
+// });
 
-promise.then(()=>{
-  console.log("number same.");
-})
+// promise.then(()=>{
+//   console.log("number same.");
+// })
+
+//promise 4
+
+// function promise(dataId){
+//   return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log(`data: ${dataId}`);
+//         resolve();
+//     }, 2000)
+//   });
+// }
+// const api = async ()=>{
+//   await promise(2);
+//   await promise(3);
+//   await promise(4);
+// }
+// console.log(api());
+
+//promise 5
+function promise(dataId, error){
+     return new Promise((resolve,reject)=>{
+       setTimeout(()=>{
+          if(!error){
+            console.log(`data: ${dataId}`);
+            resolve();
+          }
+          else{
+            reject(error = "limit reached");
+          }
+       }, 2000)
+      });
+  }
+
+  const api = async ()=>{
+    try {
+      await promise(1,false);
+      await promise(2,false);
+      await promise(3,false);
+      await promise(4,true);
+      await promise(5,false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  console.log(api());
